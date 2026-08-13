@@ -1,0 +1,526 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Enes Polovina</title>
+<meta name="description" content="Enes Polovina — configuration lead in Sarajevo with a QA background, shipping his own products on the side.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --paper:  #E9EBE4;
+  --ink:    #14161A;
+  --cobalt: #2B44D6;
+  --flare:  #DE3A5E;
+  --mute:   #6E7269;
+  --line:   #C9CDC2;
+
+  --display: "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
+  --body:    "Newsreader", Georgia, serif;
+  --util:    "JetBrains Mono", ui-monospace, monospace;
+
+  --pad: clamp(1.25rem, 5vw, 5rem);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 400 clamp(1rem, 0.55vw + 0.87rem, 1.2rem)/1.55 var(--body);
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--cobalt); outline-offset: 3px; }
+
+/* ---------- shared ---------- */
+
+.wrap { max-width: 76rem; margin: 0 auto; padding-inline: var(--pad); }
+
+.eyebrow {
+  font: 500 0.72rem/1.5 var(--util);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--mute);
+}
+
+.band {
+  padding-block: clamp(3.5rem, 9vw, 7rem);
+  border-top: 1px solid var(--line);
+}
+
+.band-head {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: clamp(1.75rem, 4vw, 3rem);
+}
+.band-head::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+}
+.band-head h2 {
+  font: 700 clamp(1.5rem, 2.6vw, 2.1rem)/1 var(--display);
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+/* ---------- top bar ---------- */
+
+.bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 1.25rem;
+  font: 500 0.75rem/1 var(--util);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.bar nav { display: flex; gap: clamp(0.75rem, 2vw, 1.6rem); }
+.bar a { text-decoration: none; color: var(--mute); }
+.bar a:hover { color: var(--ink); }
+.mark b { color: var(--flare); font-weight: 500; }
+.mark i { color: var(--cobalt); font-style: normal; }
+
+/* ---------- hero ---------- */
+
+.hero { padding-block: clamp(3rem, 11vw, 8rem) clamp(3rem, 8vw, 6rem); }
+
+.hero h1 {
+  font: 800 clamp(2.6rem, 11vw, 9rem)/0.9 var(--display);
+  font-variation-settings: "opsz" 96;
+  letter-spacing: -0.045em;
+  margin: 0.5rem 0 0;
+  text-wrap: balance;
+}
+.hero h1 .a { color: var(--flare); }
+.hero h1 .b { color: var(--cobalt); }
+
+.hero p {
+  max-width: 38ch;
+  margin: clamp(1.5rem, 3vw, 2.5rem) 0 0;
+  font-size: clamp(1.1rem, 0.8vw + 0.95rem, 1.45rem);
+  line-height: 1.45;
+}
+.hero p em { font-style: italic; color: var(--mute); }
+
+.facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  margin: clamp(2rem, 4vw, 3rem) 0 0;
+  padding: 0.85rem 0 0;
+  border-top: 1px solid var(--line);
+  list-style: none;
+  font: 500 0.75rem/1.6 var(--util);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--mute);
+}
+.facts .live { color: var(--ink); }
+.facts .live::before {
+  content: "";
+  display: inline-block;
+  width: 0.5rem; height: 0.5rem;
+  margin-right: 0.5rem;
+  border-radius: 50%;
+  background: var(--flare);
+  vertical-align: 0.02em;
+}
+
+/* ---------- deck ---------- */
+
+.deck {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  padding-block: 1.5rem 2.5rem;
+}
+
+.card {
+  flex: 1 1 17rem;
+  min-width: 0;
+  display: block;
+  padding: 1.5rem 1.4rem 1.6rem;
+  background: var(--paper);
+  border: 1px solid var(--ink);
+  border-radius: 0.9rem;
+  text-decoration: none;
+  box-shadow: 0.5rem 0.5rem 0 var(--ink);
+  transition: transform 0.28s cubic-bezier(.2,.7,.3,1), box-shadow 0.28s;
+}
+.card:nth-child(1) { transform: rotate(-2.4deg); z-index: 3; }
+.card:nth-child(2) { transform: rotate(1.4deg);  z-index: 2; margin-inline: -0.9rem; }
+.card:nth-child(3) { transform: rotate(-0.8deg); z-index: 1; }
+
+.card:hover,
+.card:focus-visible {
+  transform: rotate(0deg) translateY(-0.7rem);
+  box-shadow: 0.5rem 1.2rem 0 var(--cobalt);
+  z-index: 4;
+}
+.card:nth-child(2):hover,
+.card:nth-child(2):focus-visible { box-shadow: 0.5rem 1.2rem 0 var(--flare); }
+
+.card h3 {
+  font: 700 1.5rem/1.05 var(--display);
+  letter-spacing: -0.02em;
+  margin: 0.6rem 0 0.4rem;
+}
+.card p { margin: 0; font-size: 0.98rem; line-height: 1.45; }
+
+.card .role {
+  display: block;
+  font: 500 0.68rem/1 var(--util);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--mute);
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+.chips li {
+  font: 500 0.66rem/1 var(--util);
+  letter-spacing: 0.06em;
+  padding: 0.32rem 0.5rem;
+  border: 1px solid var(--line);
+  border-radius: 0.35rem;
+  color: var(--mute);
+}
+
+@media (max-width: 46rem) {
+  .deck { flex-direction: column; gap: 1.1rem; padding-block: 0.5rem 1rem; }
+  .card:nth-child(2) { margin-inline: 0; }
+  .card { box-shadow: 0.35rem 0.35rem 0 var(--ink); }
+}
+
+/* ---------- roles ---------- */
+
+.roles { list-style: none; margin: 0; padding: 0; }
+.roles > li {
+  display: grid;
+  grid-template-columns: 10rem 1fr;
+  gap: 0.35rem 2rem;
+  padding-block: 1.6rem;
+  border-top: 1px solid var(--line);
+}
+.roles > li:first-child { border-top: 0; padding-top: 0; }
+.roles .when {
+  font: 500 0.74rem/1.7 var(--util);
+  letter-spacing: 0.04em;
+  color: var(--mute);
+  font-variant-numeric: tabular-nums;
+}
+.roles h3 {
+  font: 700 1.2rem/1.15 var(--display);
+  letter-spacing: -0.015em;
+  margin: 0 0 0.15rem;
+  text-wrap: balance;
+}
+.roles .org { margin: 0; color: var(--flare); font-style: italic; }
+.roles .org span { color: var(--mute); font-style: normal; font-size: 0.9rem; }
+.roles ul { margin: 0.55rem 0 0; padding-left: 1.05rem; }
+.roles ul li { margin: 0.2rem 0; font-size: 0.98rem; }
+
+@media (max-width: 40rem) {
+  .roles > li { grid-template-columns: 1fr; gap: 0.25rem; }
+}
+
+/* ---------- split ---------- */
+
+.split {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 2rem clamp(2rem, 6vw, 5rem);
+}
+.split > section > h3 {
+  font: 500 0.72rem/1 var(--util);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin: 0 0 1rem;
+  padding-bottom: 0.7rem;
+  border-bottom: 2px solid currentColor;
+}
+.split .qa  > h3 { color: var(--flare); }
+.split .dev > h3 { color: var(--cobalt); }
+.split ul { list-style: none; margin: 0; padding: 0; }
+.split ul li {
+  font: 500 0.85rem/1.4 var(--util);
+  padding-block: 0.5rem;
+  border-bottom: 1px solid var(--line);
+}
+
+/* ---------- contact ---------- */
+
+.end { padding-block: clamp(4rem, 10vw, 8rem); border-top: 1px solid var(--line); }
+.end a.big {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font: 800 clamp(1.6rem, 6.4vw, 4.6rem)/1.05 var(--display);
+  letter-spacing: -0.04em;
+  text-decoration: none;
+  color: var(--ink);
+  word-break: break-word;
+  transition: color 0.2s;
+}
+.end a.big:hover { color: var(--cobalt); }
+
+.end .links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  margin: 2rem 0 0;
+  padding: 0;
+  list-style: none;
+  font: 500 0.78rem/1 var(--util);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.end .links a { color: var(--mute); text-decoration: none; }
+.end .links a:hover { color: var(--flare); }
+
+.colophon {
+  margin: clamp(3rem, 7vw, 5rem) 0 0;
+  font: 500 0.7rem/1.6 var(--util);
+  letter-spacing: 0.06em;
+  color: var(--mute);
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="bar">
+    <span class="mark">Enes <b>Polo</b><i>vina</i></span>
+    <nav>
+      <a href="#building">Building</a>
+      <a href="#work">Work</a>
+      <a href="#stack">Stack</a>
+      <a href="#say-hi">Say hi</a>
+    </nav>
+  </header>
+
+  <!-- ── hero ─────────────────────────────────────────────── -->
+  <section class="hero">
+    <p class="eyebrow">Configuration Lead · Sarajevo</p>
+    <h1><span class="a">Break it.</span><br>Then <span class="b">build it.</span></h1>
+    <p>
+      Years spent finding where software gives way, now spent bending an insurance
+      platform to fit how each client really works — half configuration, half code.
+      The rest of my time goes to my own products, front to back.
+      <em>Testing taught me what breaks. Building taught me why.</em>
+    </p>
+    <ul class="facts">
+      <li class="live">Open to work — Sarajevo, hybrid or remote</li>
+      <li>QA · Config · TypeScript · React Native · NestJS · .NET</li>
+    </ul>
+  </section>
+
+  <!-- ── projects ─────────────────────────────────────────── -->
+  <section class="band" id="building">
+    <div class="band-head">
+      <h2>Building</h2>
+      <span class="eyebrow">Pick a card</span>
+    </div>
+
+    <div class="deck">
+      <a class="card" href="https://github.com/EnesPolovina" target="_blank" rel="noopener">
+        <span class="role">App + API</span>
+        <h3>Swapr</h3>
+        <p>
+          Swipe-based, local-first item trading. Two people match on things they
+          already own, and the trade happens between them — no listings, no bidding.
+        </p>
+        <ul class="chips">
+          <li>React Native</li><li>Expo</li><li>NestJS</li><li>MongoDB</li><li>Socket.IO</li>
+        </ul>
+      </a>
+
+      <a class="card" href="https://github.com/EnesPolovina" target="_blank" rel="noopener">
+        <span class="role">Internal web</span>
+        <h3>Swapr Admin</h3>
+        <p>
+          The other half of Swapr: KPIs, report triage, bans, and listing moderation.
+          Reads MongoDB Atlas straight, so there's no second backend to keep alive.
+        </p>
+        <ul class="chips">
+          <li>Next.js</li><li>Tailwind v4</li><li>MongoDB Atlas</li><li>Docker</li>
+        </ul>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ── work ─────────────────────────────────────────────── -->
+  <section class="band" id="work">
+    <div class="band-head">
+      <h2>Work</h2>
+      <span class="eyebrow">Where it shipped</span>
+    </div>
+
+    <ul class="roles">
+      <li>
+        <span class="when">Feb 2025 — Present</span>
+        <div>
+          <h3>Configuration Analyst → Configuration Lead</h3>
+          <p class="org">Benekiva <span>· Full-time · United States, remote</span></p>
+          <ul>
+            <li>Configure the claims platform to match how each client actually
+                processes claims — their products, workflows, and documents.</li>
+            <li>Run several client projects at once: configuration across all of
+                them, and hands-on coding on three at a time, sometimes more.</li>
+            <li>Build custom solutions for the problems that only surface
+                mid-implementation, rather than routing around them.</li>
+            <li>Grew from analyst into the lead configuration role. Second stint
+                here; the first was in 2021.</li>
+          </ul>
+        </div>
+      </li>
+
+      <li>
+        <span class="when">Sep 2018 — Present</span>
+        <div>
+          <h3>Head of Documentation, Analysis &amp; Data Processing</h3>
+          <p class="org">AMUS — Association of Composers and Music Creators <span>· Full-time · Sarajevo</span></p>
+          <ul>
+            <li>Plan and organise the department's work, assign tasks, and clear
+                problems both day to day and across longer distribution cycles.</li>
+            <li>Prepare reports on performance and royalty distribution data,
+                and propose the fixes that follow from them.</li>
+            <li>Own IT operations end to end: servers, e-mail, security tools,
+                desktops, software and hardware, and the website.</li>
+          </ul>
+        </div>
+      </li>
+
+      <li>
+        <span class="when">Jun 2022 — Sep 2024</span>
+        <div>
+          <h3>Quality Assurance Engineer</h3>
+          <p class="org">AztecLabs — now IntegratingMe <span>· Full-time · Remote</span></p>
+          <ul>
+            <li>QA across multiple projects, moving between them as releases
+                came up.</li>
+            <li>Consumer Android products, including One Click Root, a device
+                rooting and support service, and Phone Monitor, an Android
+                monitoring and GPS tracking app.</li>
+          </ul>
+        </div>
+      </li>
+
+      <li>
+        <span class="when">Nov 2021 — Jun 2022</span>
+        <div>
+          <h3>Technology Analyst</h3>
+          <p class="org">Benekiva <span>· Full-time · United States, remote</span></p>
+          <ul>
+            <li>Configuration only on this first stint: setting up the claims
+                platform around each client's products and workflows.</li>
+          </ul>
+        </div>
+      </li>
+
+      <li>
+        <span class="when">Jan 2021 — Jun 2022</span>
+        <div>
+          <h3>Quality Assurance Engineer</h3>
+          <p class="org">GovAssist LLC <span>· Full-time</span></p>
+          <ul>
+            <li>Reviewed system specifications, then wrote and executed test
+                cases by hand and analysed the results.</li>
+            <li>Documented technical issues, reported defects, and worked with
+                developers on test plans and strategy.</li>
+          </ul>
+        </div>
+      </li>
+
+      <li>
+        <span class="when">Oct 2016 — Oct 2017</span>
+        <div>
+          <h3>Frontend Developer</h3>
+          <p class="org">HUB387 <span>· Part-time · Sarajevo</span></p>
+          <ul>
+            <li>Built three platforms: Bookvar and Komperion, online course
+                platforms for the Balkans, and Agmentor, an agriculture
+                information portal.</li>
+          </ul>
+        </div>
+      </li>
+
+      <li>
+        <span class="when">2012 — 2015</span>
+        <div>
+          <h3>BSc, Information Technology</h3>
+          <p class="org">Faculty of Technical Studies, University of Travnik</p>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ── stack ────────────────────────────────────────────── -->
+  <section class="band" id="stack">
+    <div class="band-head">
+      <h2>Stack</h2>
+      <span class="eyebrow">Both halves of the job</span>
+    </div>
+
+    <div class="split">
+      <section class="qa">
+        <h3>Breaking it</h3>
+        <ul>
+          <li>Playwright</li>
+          <li>Postman</li>
+          <li>Jira</li>
+          <li>Test case design</li>
+          <li>UI &amp; functional testing</li>
+          <li>System configuration</li>
+        </ul>
+      </section>
+      <section class="dev">
+        <h3>Building it</h3>
+        <ul>
+          <li>TypeScript &amp; JavaScript</li>
+          <li>React · Next.js · React Native</li>
+          <li>NestJS · Node.js</li>
+          <li>C# / .NET</li>
+          <li>MongoDB · MS SQL · Docker · Git</li>
+          <li>Claude Code · Codex</li>
+        </ul>
+      </section>
+    </div>
+  </section>
+
+  <!-- ── contact ──────────────────────────────────────────── -->
+  <section class="end" id="say-hi">
+    <p class="eyebrow">Say hi</p>
+    <a class="big" href="mailto:enespolovina@gmail.com">enespolovina@gmail.com</a>
+    <ul class="links">
+      <li><a href="https://github.com/EnesPolovina" target="_blank" rel="noopener">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/enes-polovina/" target="_blank" rel="noopener">LinkedIn</a></li>
+      <li>Sarajevo, Bosnia and Herzegovina</li>
+    </ul>
+    <p class="colophon">Bricolage Grotesque · Newsreader · JetBrains Mono</p>
+  </section>
+
+</div>
+</body>
+</html>
