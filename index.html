@@ -117,17 +117,42 @@ a { color: inherit; }
 .bar nav { display: flex; align-items: center; gap: clamp(0.75rem, 2vw, 1.6rem); }
 
 .theme {
-  font: inherit;
-  line-height: 1;
-  color: var(--mute);
+  position: relative;
+  flex: none;
+  width: 2.75rem;
+  height: 1.5rem;
+  padding: 0;
   background: none;
   border: 1px solid var(--line);
   border-radius: 999px;
-  padding: 0.35rem 0.6rem;
   cursor: pointer;
-  transition: color 0.2s, border-color 0.2s;
+  transition: border-color 0.2s;
 }
-.theme:hover { color: var(--ink); border-color: var(--ink); }
+.theme:hover { border-color: var(--ink); }
+.theme::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0.25rem;
+  width: 0.9rem;
+  height: 0.9rem;
+  border-radius: 50%;
+  background: var(--cobalt);
+  transform: translate(0, -50%);
+  transition: transform 0.24s cubic-bezier(.2,.7,.3,1), background 0.24s;
+}
+
+/* Knob slides right and turns flare in dark — same two conditions as the palette. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .theme::after {
+    transform: translate(1.35rem, -50%);
+    background: var(--flare);
+  }
+}
+:root[data-theme="dark"] .theme::after {
+  transform: translate(1.35rem, -50%);
+  background: var(--flare);
+}
 .bar a { text-decoration: none; color: var(--mute); }
 .bar a:hover { color: var(--ink); }
 .mark b { color: var(--flare); font-weight: 500; }
@@ -389,7 +414,7 @@ a { color: inherit; }
       <a href="#work">Work</a>
       <a href="#stack">Stack</a>
       <a href="#say-hi">Say hi</a>
-      <button class="theme" type="button" aria-label="Toggle colour scheme">◐</button>
+      <button class="theme" type="button" role="switch" aria-label="Dark mode"></button>
     </nav>
   </header>
 
@@ -656,13 +681,20 @@ a { color: inherit; }
 </div>
 
 <script>
-  document.querySelector(".theme").addEventListener("click", function () {
-    var root = document.documentElement;
-    var dark = root.dataset.theme
+  var root = document.documentElement;
+  var toggle = document.querySelector(".theme");
+
+  function isDark() {
+    return root.dataset.theme
       ? root.dataset.theme === "dark"
       : matchMedia("(prefers-color-scheme: dark)").matches;
-    root.dataset.theme = dark ? "light" : "dark";
+  }
+
+  toggle.setAttribute("aria-checked", isDark());
+  toggle.addEventListener("click", function () {
+    root.dataset.theme = isDark() ? "light" : "dark";
     localStorage.setItem("theme", root.dataset.theme);
+    toggle.setAttribute("aria-checked", isDark());
   });
 </script>
 </body>
