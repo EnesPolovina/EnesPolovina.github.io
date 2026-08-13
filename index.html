@@ -395,23 +395,23 @@ a { color: inherit; }
 .end .links a { color: var(--mute); text-decoration: none; }
 .end .links a:hover { color: var(--flare); }
 
-/* Riddle → mark → answer. The hint stays visible so it's actually solvable. */
+/* The mark is the answer, so it lives inside the reveal — not beside the question. */
 .riddle {
-  max-width: 34ch;
-  margin: clamp(3rem, 7vw, 5rem) 0 0;
-  font-size: 1.05rem;
-  line-height: 1.5;
+  margin: clamp(4rem, 9vw, 7rem) auto 0;
+  padding-top: clamp(2.5rem, 5vw, 3.5rem);
+  border-top: 1px solid var(--line);
+  text-align: center;
 }
-.riddle span {
-  display: block;
-  margin-top: 0.35rem;
+.riddle > p { margin: 0; font-size: 1.05rem; line-height: 1.5; }
+.riddle .hint {
+  margin-top: 0.4rem;
   font: 500 0.72rem/1.6 var(--util);
   letter-spacing: 0.06em;
   color: var(--mute);
 }
-.riddle i { font-style: italic; }
+.riddle .hint i { font-style: italic; }
 
-.reveal { margin-top: 1.5rem; }
+.reveal { margin-top: 1.6rem; }
 .reveal summary {
   display: inline-block;
   font: 500 0.72rem/1 var(--util);
@@ -428,15 +428,19 @@ a { color: inherit; }
 .reveal summary::-webkit-details-marker { display: none; }
 .reveal summary:hover { color: var(--ink); border-color: var(--ink); }
 .reveal[open] summary { color: var(--ink); border-color: var(--ink); }
-.reveal p { max-width: 34ch; margin: 0.9rem 0 0; font-size: 1rem; }
+.reveal .answer {
+  margin: 1rem auto 0;
+  font-size: 1rem;
+  color: var(--mute);
+}
 
 /* NS over 2 — "eN eS" halved. Polovina means half. */
 .sig {
   display: inline-flex;
   flex-direction: column;
   align-items: center;
-  margin: 1.75rem 0 0;
-  font: 800 clamp(1.6rem, 4vw, 2.4rem)/1 var(--display);
+  margin: 1.6rem 0 0;
+  font: 800 clamp(1.8rem, 4.5vw, 2.6rem)/1 var(--display);
   letter-spacing: 0.04em;
 }
 .sig span { display: block; padding-inline: 0.3rem; }
@@ -449,12 +453,6 @@ a { color: inherit; }
   text-align: center;
 }
 
-.colophon {
-  margin: 1.25rem 0 0;
-  font: 500 0.7rem/1.6 var(--util);
-  letter-spacing: 0.06em;
-  color: var(--mute);
-}
 </style>
 </head>
 <body>
@@ -740,22 +738,19 @@ a { color: inherit; }
       <li><a href="https://www.linkedin.com/in/enes-polovina/" target="_blank" rel="noopener">LinkedIn</a></li>
       <li>Sarajevo, Bosnia and Herzegovina</li>
     </ul>
-    <p class="riddle">
-      My first and last name fit in four characters.
-      <span>Hint: <i>polovina</i> is Bosnian for &ldquo;half&rdquo;.</span>
-    </p>
+    <div class="riddle">
+      <p>My first and last name fit in four characters.</p>
+      <p class="hint">Hint: <i>polovina</i> is Bosnian for &ldquo;half&rdquo;.</p>
 
-    <p class="sig" aria-label="Enes Polovina">
-      <span class="num"><b>N</b><i>S</i></span>
-      <span class="den">2</span>
-    </p>
-
-    <details class="reveal">
-      <summary>Show the answer</summary>
-      <p>Say the letters out loud — eN, eS. Then halve them. Enes Polovina.</p>
-    </details>
-
-    <p class="colophon">Bricolage Grotesque · Newsreader · JetBrains Mono</p>
+      <details class="reveal">
+        <summary>Show the answer</summary>
+        <p class="sig" aria-label="Enes Polovina">
+          <span class="num"><b>N</b><i>S</i></span>
+          <span class="den">2</span>
+        </p>
+        <p class="answer">Say the letters out loud — eN, eS. Then halve them.</p>
+      </details>
+    </div>
   </section>
 
 </div>
