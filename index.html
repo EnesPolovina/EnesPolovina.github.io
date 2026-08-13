@@ -395,12 +395,47 @@ a { color: inherit; }
 .end .links a { color: var(--mute); text-decoration: none; }
 .end .links a:hover { color: var(--flare); }
 
+/* Riddle → mark → answer. The hint stays visible so it's actually solvable. */
+.riddle {
+  max-width: 34ch;
+  margin: clamp(3rem, 7vw, 5rem) 0 0;
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+.riddle span {
+  display: block;
+  margin-top: 0.35rem;
+  font: 500 0.72rem/1.6 var(--util);
+  letter-spacing: 0.06em;
+  color: var(--mute);
+}
+.riddle i { font-style: italic; }
+
+.reveal { margin-top: 1.5rem; }
+.reveal summary {
+  display: inline-block;
+  font: 500 0.72rem/1 var(--util);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--mute);
+  cursor: pointer;
+  padding: 0.4rem 0.7rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  list-style: none;
+  transition: color 0.2s, border-color 0.2s;
+}
+.reveal summary::-webkit-details-marker { display: none; }
+.reveal summary:hover { color: var(--ink); border-color: var(--ink); }
+.reveal[open] summary { color: var(--ink); border-color: var(--ink); }
+.reveal p { max-width: 34ch; margin: 0.9rem 0 0; font-size: 1rem; }
+
 /* NS over 2 — "eN eS" halved. Polovina means half. */
 .sig {
   display: inline-flex;
   flex-direction: column;
   align-items: center;
-  margin: clamp(3rem, 7vw, 5rem) 0 0;
+  margin: 1.75rem 0 0;
   font: 800 clamp(1.6rem, 4vw, 2.4rem)/1 var(--display);
   letter-spacing: 0.04em;
 }
@@ -705,14 +740,22 @@ a { color: inherit; }
       <li><a href="https://www.linkedin.com/in/enes-polovina/" target="_blank" rel="noopener">LinkedIn</a></li>
       <li>Sarajevo, Bosnia and Herzegovina</li>
     </ul>
+    <p class="riddle">
+      My first and last name fit in four characters.
+      <span>Hint: <i>polovina</i> is Bosnian for &ldquo;half&rdquo;.</span>
+    </p>
+
     <p class="sig" aria-label="Enes Polovina">
       <span class="num"><b>N</b><i>S</i></span>
       <span class="den">2</span>
     </p>
-    <p class="colophon">
-      eN eS, halved — <em>polovina</em> is Bosnian for &ldquo;half&rdquo;.<br>
-      Bricolage Grotesque · Newsreader · JetBrains Mono
-    </p>
+
+    <details class="reveal">
+      <summary>Show the answer</summary>
+      <p>Say the letters out loud — eN, eS. Then halve them. Enes Polovina.</p>
+    </details>
+
+    <p class="colophon">Bricolage Grotesque · Newsreader · JetBrains Mono</p>
   </section>
 
 </div>
