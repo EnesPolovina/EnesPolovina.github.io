@@ -212,6 +212,31 @@ a { color: inherit; }
   .card { box-shadow: 0.35rem 0.35rem 0 var(--ink); }
 }
 
+/* ---------- process ---------- */
+
+.process {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: 2rem clamp(1.5rem, 4vw, 3rem);
+}
+.process li { border-top: 2px solid var(--ink); padding-top: 0.9rem; }
+.process li:nth-child(odd)  { border-top-color: var(--cobalt); }
+.process li:nth-child(even) { border-top-color: var(--flare); }
+.process .step {
+  font: 500 0.7rem/1 var(--util);
+  letter-spacing: 0.14em;
+  color: var(--mute);
+}
+.process h3 {
+  font: 700 1.1rem/1.15 var(--display);
+  letter-spacing: -0.015em;
+  margin: 0.5rem 0 0.4rem;
+}
+.process p { margin: 0; font-size: 0.95rem; line-height: 1.5; }
+
 /* ---------- roles ---------- */
 
 .roles { list-style: none; margin: 0; padding: 0; }
@@ -313,6 +338,7 @@ a { color: inherit; }
     <span class="mark">Enes <b>Polo</b><i>vina</i></span>
     <nav>
       <a href="#building">Building</a>
+      <a href="#how">How</a>
       <a href="#work">Work</a>
       <a href="#stack">Stack</a>
       <a href="#say-hi">Say hi</a>
@@ -368,6 +394,50 @@ a { color: inherit; }
       </a>
 
     </div>
+  </section>
+
+  <!-- ── process ──────────────────────────────────────────── -->
+  <section class="band" id="how">
+    <div class="band-head">
+      <h2>How I work</h2>
+      <span class="eyebrow">AI does the typing. The process is mine.</span>
+    </div>
+
+    <ol class="process">
+      <li>
+        <span class="step">01 / Research</span>
+        <h3>Read the options first</h3>
+        <p>
+          The wrong library is a decision you live with for a year, not a line
+          you delete. I go through the alternatives before anything gets written.
+        </p>
+      </li>
+      <li>
+        <span class="step">02 / Tests</span>
+        <h3>They ship with the feature</h3>
+        <p>
+          New code arrives with its tests. Not afterwards, not once there's time
+          — that time never shows up.
+        </p>
+      </li>
+      <li>
+        <span class="step">03 / Agents</span>
+        <h3>Written to my spec</h3>
+        <p>
+          I build agents with custom skills and explicit instructions, so the
+          tests they generate check what I decided matters, not what a model
+          assumed I meant.
+        </p>
+      </li>
+      <li>
+        <span class="step">04 / CI</span>
+        <h3>The gate holds</h3>
+        <p>
+          GitHub Actions runs the suite on every pull request. Nothing merges on
+          a promise that it probably works.
+        </p>
+      </li>
+    </ol>
   </section>
 
   <!-- ── work ─────────────────────────────────────────────── -->
