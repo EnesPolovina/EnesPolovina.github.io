@@ -212,6 +212,14 @@ a { color: inherit; }
   .card { box-shadow: 0.35rem 0.35rem 0 var(--ink); }
 }
 
+.note {
+  max-width: 44ch;
+  margin: 1rem 0 0;
+  text-transform: none;
+  letter-spacing: 0.02em;
+  line-height: 1.6;
+}
+
 /* ---------- process ---------- */
 
 .process {
@@ -356,7 +364,8 @@ a { color: inherit; }
       <em>Anyone can generate code. Fewer can tell you if it works.</em>
     </p>
     <ul class="facts">
-      <li class="live">Open to work — Sarajevo, hybrid or remote</li>
+      <li class="live">Open to work — hybrid or remote</li>
+      <li>Sarajevo (CET) · overlapping US mornings</li>
       <li>Claude Code · Codex · TypeScript · React Native · NestJS · .NET</li>
     </ul>
   </section>
@@ -394,6 +403,11 @@ a { color: inherit; }
       </a>
 
     </div>
+
+    <p class="eyebrow note">
+      Day-job code lives in private Bitbucket repos, so GitHub shows less than
+      the work does. Happy to walk through any of it.
+    </p>
   </section>
 
   <!-- ── process ──────────────────────────────────────────── -->
@@ -454,15 +468,17 @@ a { color: inherit; }
           <h3>Configuration Analyst → Configuration Lead</h3>
           <p class="org">Benekiva <span>· Full-time · United States, remote</span></p>
           <ul>
-            <li>Configure the claims platform to match how each client actually
-                processes claims — their products, workflows, and documents.</li>
-            <li>Run several client projects at once: configuration across all of
-                them, and hands-on coding on three at a time, sometimes more.</li>
-            <li>Build custom solutions with AI-assisted workflows for the
-                problems that only surface mid-implementation — then verify them
-                myself instead of shipping on trust.</li>
-            <li>Grew from analyst into the lead configuration role. Second stint
-                here; the first was in 2021.</li>
+            <li>Configure the claims platform around each client's own products,
+                workflows, and documents. Five client implementations so far,
+                three of them end to end — two live in production, and one I lead.</li>
+            <li>Built a custom Task Center for one environment: tasks generated
+                per user role, each carrying a full lifecycle from creation
+                through to close.</li>
+            <li>Split between configuration and hands-on development with
+                AI-assisted workflows — then verify the output myself instead of
+                shipping on trust.</li>
+            <li>Promoted from Configuration Analyst to Configuration Lead.
+                Second stint here; the first was in 2021.</li>
           </ul>
         </div>
       </li>
@@ -473,12 +489,15 @@ a { color: inherit; }
           <h3>Head of Documentation, Analysis &amp; Data Processing</h3>
           <p class="org">AMUS — Association of Composers and Music Creators <span>· Full-time · Sarajevo</span></p>
           <ul>
-            <li>Plan and organise the department's work, assign tasks, and clear
-                problems both day to day and across longer distribution cycles.</li>
-            <li>Prepare reports on performance and royalty distribution data,
-                and propose the fixes that follow from them.</li>
-            <li>Own IT operations end to end: servers, e-mail, security tools,
-                desktops, software and hardware, and the website.</li>
+            <li>Lead the distribution department — the team that turns broadcast
+                logs into royalty payments for music authors.</li>
+            <li>Process monthly playlists from 120+ radio and TV stations, each
+                with its own broadcaster, feeding two full distribution cycles
+                a year.</li>
+            <li>Work on the file-processing pipeline daily so every cycle runs
+                faster and cleaner than the last.</li>
+            <li>Run the IT operations behind it: servers, the data-processing
+                applications, security, desktops, and the website.</li>
           </ul>
         </div>
       </li>
@@ -489,11 +508,12 @@ a { color: inherit; }
           <h3>Quality Assurance Engineer</h3>
           <p class="org">AztecLabs — now IntegratingMe <span>· Full-time · Remote</span></p>
           <ul>
-            <li>QA across multiple projects, moving between them as releases
-                came up.</li>
-            <li>Consumer Android products, including One Click Root, a device
-                rooting and support service, and Phone Monitor, an Android
-                monitoring and GPS tracking app.</li>
+            <li>QA for One Click Root, a device rooting and support service, and
+                Phone Monitor, an Android monitoring and GPS tracking app. No
+                staging environment — everything was tested against the live
+                sites.</li>
+            <li>Owned payment-flow testing across both products, the path where
+                a defect costs a customer real money.</li>
           </ul>
         </div>
       </li>
@@ -516,10 +536,11 @@ a { color: inherit; }
           <h3>Quality Assurance Engineer</h3>
           <p class="org">GovAssist LLC <span>· Full-time</span></p>
           <ul>
-            <li>Reviewed system specifications, then wrote and executed test
-                cases by hand and analysed the results.</li>
-            <li>Documented technical issues, reported defects, and worked with
-                developers on test plans and strategy.</li>
+            <li>Tested visa application forms and payment systems, where a
+                dropped submission or a failed charge is someone's actual
+                application.</li>
+            <li>Reviewed system specifications, wrote and executed test cases by
+                hand, and tracked defects to closure with the developers.</li>
           </ul>
         </div>
       </li>
