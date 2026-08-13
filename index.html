@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Enes Polovina</title>
 <meta name="description" content="Enes Polovina — AI-assisted developer in Sarajevo. Six years of QA means I know how to break what I just shipped.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
@@ -394,8 +395,27 @@ a { color: inherit; }
 .end .links a { color: var(--mute); text-decoration: none; }
 .end .links a:hover { color: var(--flare); }
 
-.colophon {
+/* NS over 2 — "eN eS" halved. Polovina means half. */
+.sig {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
   margin: clamp(3rem, 7vw, 5rem) 0 0;
+  font: 800 clamp(1.6rem, 4vw, 2.4rem)/1 var(--display);
+  letter-spacing: 0.04em;
+}
+.sig span { display: block; padding-inline: 0.3rem; }
+.sig .num b { color: var(--cobalt); font-weight: inherit; }
+.sig .num i { color: var(--flare); font-style: normal; }
+.sig .den {
+  width: 100%;
+  padding-top: 0.12rem;
+  border-top: 2px solid var(--ink);
+  text-align: center;
+}
+
+.colophon {
+  margin: 1.25rem 0 0;
   font: 500 0.7rem/1.6 var(--util);
   letter-spacing: 0.06em;
   color: var(--mute);
@@ -685,7 +705,14 @@ a { color: inherit; }
       <li><a href="https://www.linkedin.com/in/enes-polovina/" target="_blank" rel="noopener">LinkedIn</a></li>
       <li>Sarajevo, Bosnia and Herzegovina</li>
     </ul>
-    <p class="colophon">Bricolage Grotesque · Newsreader · JetBrains Mono</p>
+    <p class="sig" aria-label="Enes Polovina">
+      <span class="num"><b>N</b><i>S</i></span>
+      <span class="den">2</span>
+    </p>
+    <p class="colophon">
+      eN eS, halved — <em>polovina</em> is Bosnian for &ldquo;half&rdquo;.<br>
+      Bricolage Grotesque · Newsreader · JetBrains Mono
+    </p>
   </section>
 
 </div>

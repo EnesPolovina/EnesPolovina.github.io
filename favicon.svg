@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- NS over 2 — transparent ground and a mid-tone rule so it reads on
+       both light and dark browser chrome. -->
+  <text x="16" y="14.5" text-anchor="middle"
+        font-family="Verdana, DejaVu Sans, sans-serif" font-size="14" font-weight="700">
+    <tspan fill="#2B44D6">N</tspan><tspan fill="#DE3A5E">S</tspan>
+  </text>
+  <rect x="5" y="16.5" width="22" height="2.2" fill="#8E938A"/>
+  <text x="16" y="30" text-anchor="middle"
+        font-family="Verdana, DejaVu Sans, sans-serif" font-size="14" font-weight="700"
+        fill="#8E938A">2</text>
+</svg>
